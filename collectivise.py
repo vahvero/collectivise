@@ -11,10 +11,8 @@ def zip_directory(path, fobj):
 
 if __name__=="__main__":
     args = sys.argv
-    print(args)
     source = args[1]
     source = os.path.realpath(source)
-    print(source)
     if len(args) < 3:
         dest = "collectivised_" + os.path.basename(os.path.normpath(source)) + ".zip"
     else:
@@ -22,15 +20,13 @@ if __name__=="__main__":
 
     with zipfile.ZipFile(dest, "w") as fobj:
         if os.path.isdir(source):
-            print("is directory")
             zip_directory(source, fobj)
         elif os.path.isfile(source):
-            print("Is file")
             fobj.write(source)
         else:
             raise ValueError(f"Invalid source '{source}'.")
 
         image_path = os.path.join(os.path.dirname(__file__), "I_serve_the_soviet_union.jfif")
-        fobj.write(image_path)
+        fobj.write(image_path,  "I_serve_the_soviet_union.jfif")
     
     print(f"Wrote to {dest}.")
