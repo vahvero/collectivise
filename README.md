@@ -1,2 +1,2 @@
 # collectivise
-Stupid ps1 script that adds "I serve the soviet union"-meme when creating zip file.
+Stupid python script that adds "I serve the soviet union"-meme when creating zip file.
